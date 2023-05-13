@@ -17,11 +17,11 @@ namespace SupermarketWEB.Pages.Sales
 			_context = context;
 		}
 
-		public IList<Sale> Sales { get; set; }
+		public IList<Sale> sales { get; set; }
 
 		public async Task<IActionResult> OnGetAsync()
 		{
-			Sales = await _context.Sales
+			sales = await _context.Sales
 				.Include(s => s.Product)
 				.ToListAsync();
 

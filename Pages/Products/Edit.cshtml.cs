@@ -37,7 +37,7 @@ namespace SupermarketWEB.Pages.Products
 				return NotFound();
 			}
 
-			// Set the category list for the dropdown
+			
 			CategoryList = new SelectList(_context.Categories, "Id", "Name", Product.CategoryId);
 
 			return Page();
@@ -47,9 +47,9 @@ namespace SupermarketWEB.Pages.Products
 		{
 			if (!ModelState.IsValid)
 			{
-				// Set the category list for the dropdown
+				
 				CategoryList = new SelectList(_context.Categories, "Id", "Name", Product.CategoryId);
-				//return Page();
+				
 			}
 
 			_context.Attach(Product).State = EntityState.Modified;
