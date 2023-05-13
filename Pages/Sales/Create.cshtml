@@ -1,0 +1,51 @@
+﻿@page
+@model SupermarketWEB.Pages.Sales.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+<h4>Sales</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Sale.Date" class="control-label"></label>
+                <input asp-for="Sale.Date" class="form-control" />
+                <span asp-validation-for="Sale.Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sale.Total" class="control-label"></label>
+                <input asp-for="Sale.Total" class="form-control" />
+                <span asp-validation-for="Sale.Total" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sale.CustomerName" class="control-label"></label>
+                <input asp-for="Sale.CustomerName" class="form-control" />
+                <span asp-validation-for="Sale.CustomerName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                
+                <label asp-for="Sale.ProductId" class="control-label"></label>
+
+                <select asp-for="Sale.ProductId" class="form-control" asp-items="@(new SelectList(Model.ProductList, "Id", "Name"))"></select>
+                <span asp-validation-for="Sale.ProductId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mt-3">
+                <button type="submit" class="btn btn-success" asp-route-handler="create">Create</button>
+                <a asp-page="Index" class="btn btn-primary">Back to List</a>
+            </div>
+
+        </form>
+    </div>
+</div>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
