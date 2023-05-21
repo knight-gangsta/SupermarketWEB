@@ -3,10 +3,12 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using SupermarketWEB.Data;
 using SupermarketWEB.Models;
 using Microsoft.AspNetCore.Mvc.Razor;
+using Microsoft.AspNetCore.Authorization;
 
 namespace SupermarketWEB.Pages.Categories
 {
-    public class CreateModel : PageModel
+	[Authorize]
+	public class CreateModel : PageModel
     {
         private readonly SupermarketContext _context;
         public CreateModel(SupermarketContext context) 

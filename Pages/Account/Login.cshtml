@@ -1,0 +1,84 @@
+﻿@page
+@model Autenticacion.Pages.Account.LoginModel
+
+<style>
+    .form-container {
+        max-width: 400px;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f2f2f2;
+    }
+
+    .form-container .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-container .form-label {
+        font-weight: bold;
+    }
+
+    .form-container .form-control {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    .form-container .form-text {
+        font-size: 12px;
+        color: #666;
+    }
+
+    .form-container .text-danger {
+        color: red;
+        font-size: 12px;
+    }
+
+    .form-container .btn-primary {
+        
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        float: right;
+    }
+
+    .form-container .btn-primary:hover {
+        background-color: #45a049;
+    }
+
+    .form-container .form-check-label {
+        font-weight: normal;
+    }
+</style>
+
+<div class="form-container">
+    <form method="post">
+        <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+        <div class="form-group">
+            <label for="exampleInputEmail1" class="form-label">Email address</label>
+            <input type="email" class="form-control" asp-for="User.Email" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <div class="form-text">We'll never share your email with anyone else.</div>
+            <div>
+                <span class="text-danger" asp-validation-for="User.Email"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" class="form-control" asp-for="User.Password" id="exampleInputPassword1">
+            <div>
+                <span class="text-danger" asp-validation-for="User.Password"></span>
+            </div>
+        </div>
+        <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
